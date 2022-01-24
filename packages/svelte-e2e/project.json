@@ -1,0 +1,28 @@
+{
+  "root": "packages/svelte-e2e",
+  "sourceRoot": "packages/svelte-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "packages/svelte-e2e/cypress.json",
+        "devServerTarget": "svelte:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "svelte:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/svelte-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["svelte"]
+}
